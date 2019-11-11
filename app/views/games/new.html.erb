@@ -1,0 +1,17 @@
+<h2 class="text-center">NEW GAME</h2>
+
+<ul class="list-inline text-center">
+  <% @letters.each do |letter| %>
+    <li class="text-monospace list-inline-item btn-primary font-weight-bold shadow-sm p-3 mb-5 rounded"><%= letter %></li>
+    <% end %>
+</ul>
+
+<h4 class="text-center">What's the longest word you can form ?</h4>
+<div class="d-flex justify-content-center m-4">
+  <form action="/score" method="post" class= "form-inline">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <input type="text" class="form-control" name="word" placeholder="Enter word here">
+    <button type="submit" class="btn btn-primary ml-2">Send</button>
+  </form>
+</div>
